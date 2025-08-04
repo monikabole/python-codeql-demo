@@ -1,16 +1,26 @@
-import os
-
 # CWE-78: Command Injection
+import os
 def run_command():
-    user_input = input("Enter your command: ")
-    os.system(user_input)  # 🚨 Dangerous use of raw input
-
-# CWE-259: Hardcoded Password
-def login():
-    password = "1234"  # ❌ Hardcoded credentials
-    entered = input("Enter password: ")
-    if entered == password:
-        print("Access granted")
+    user_input = input("Enter shell command: ")
+    os.system(user_input)  # 🚨 Raw shell injection
 
 run_command()
-login()
+
+
+# CWE-259: Hardcoded Credentials
+def insecure_login():
+    password = "supersecret"  # 🚨 Hardcoded password
+    user_input = input("Password: ")
+    if user_input == password:
+        print("Logged in")
+
+insecure_login()
+
+
+# CWE-94: Eval Injection
+def code_exec():
+    code = input("Run Python code: ")
+    eval(code)  # 🚨 Arbitrary code execution
+
+code_exec()
+
