@@ -1,7 +1,7 @@
 import os
 
-def delete_files():
-    filename = input("Enter filename to delete: ")
-    os.system(f"rm {filename}")  # 🚨 Command injection vulnerability
+def vulnerable():
+    user_input = input("Enter command: ")
+    os.system(user_input)  # 🚨 CodeQL should flag this as a Command Injection vulnerability
 
-delete_files()
+vulnerable()
