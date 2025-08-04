@@ -1,12 +1,9 @@
 import os
 
-# Hardcoded password
-username = "admin"
-password = "123456"
+def search_files():
+    filename = input("Enter the filename to search: ")
+    # 🚨 Vulnerability: Command injection
+    os.system(f"find / -name {filename}")
 
-# Unsafe command execution
-os.system("rm -rf /")  # Dangerous!
-
-# Insecure use of eval()
-user_input = input("Enter something: ")
-eval(user_input)
+if __name__ == "__main__":
+    search_files()
