@@ -1,7 +1,7 @@
 import os
 
-def vulnerable():
-    user_input = input("Enter command: ")
-    os.system(user_input)  # 🚨 CodeQL should flag this as a Command Injection vulnerability
+def dangerous_input():
+    cmd = input("Enter command: ")
+    os.system(cmd)  # This should trigger CWE‑78 Command Injection
 
-vulnerable()
+dangerous_input()
