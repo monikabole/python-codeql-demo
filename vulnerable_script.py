@@ -1,9 +1,7 @@
 import os
 
-def search_files():
-    filename = input("Enter the filename to search: ")
-    # 🚨 Vulnerability: Command injection
-    os.system(f"find / -name {filename}")
+def run_command():
+    user_input = input("Enter a command: ")
+    os.system(user_input)  # 💀 Command injection vulnerability
 
-if __name__ == "__main__":
-    search_files()
+run_command()
