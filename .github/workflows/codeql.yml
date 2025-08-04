@@ -33,4 +33,4 @@ jobs:
         run: echo "Python project doesn't require building"
 
       - name: Perform CodeQL analysis
-        uses: github/codeql-action/analyze@v3
+        us
